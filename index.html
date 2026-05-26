@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ollea — Природна козметика и креми | Македонија</title>
+  <meta name="description" content="Ollea — природни креми и козметика создадени во Македонија со внимателно одбрани состојки за нега на вашата кожа.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ ХЕДЕР ============ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Oll<span>e</span>a</a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Дома</a>
+        <a href="products.html">Производи</a>
+        <a href="about.html">За нас</a>
+        <a href="blog.html">Блог</a>
+        <a href="proizvod.html" class="btn btn--primary" style="padding:9px 20px;">Купи сега</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Мени">☰</button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__text">
+        <span class="eyebrow" data-cms="hero.eyebrow">Природна нега • Произведено во Македонија</span>
+        <h1 data-cms="hero.title">Нежност за вашата кожа, инспирирана од природата</h1>
+        <p data-cms="hero.subtitle">Ollea креми се создадени од внимателно одбрани природни состојки, без штетни адитиви. Откријте ритуал на нега што кожата ќе ви го возврати.</p>
+        <div class="hero__cta">
+          <a href="products.html" class="btn btn--primary">Погледни производи</a>
+          <a href="about.html" class="btn btn--outline">Нашата приказна</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <!-- SVG placeholder -->
+        <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Слика на производ">
+          <defs>
+            <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f7e7ec"/>
+              <stop offset="0.5" stop-color="#ece2f3"/>
+              <stop offset="1" stop-color="#e1ebf7"/>
+            </linearGradient>
+          </defs>
+          <rect width="520" height="460" rx="16" fill="url(#heroBg)"/>
+          <!-- три тегли (розова, лаванда, сина) -->
+          <g>
+            <rect x="120" y="210" width="90" height="150" rx="16" fill="#e7aebb"/>
+            <rect x="116" y="188" width="98" height="30" rx="9" fill="#cbc9cf"/>
+            <rect x="128" y="250" width="74" height="34" rx="4" fill="#ffffff" opacity="0.6"/>
+          </g>
+          <g>
+            <rect x="215" y="180" width="92" height="180" rx="16" fill="#c2a9d6"/>
+            <rect x="211" y="156" width="100" height="32" rx="10" fill="#cbc9cf"/>
+            <rect x="224" y="226" width="74" height="38" rx="4" fill="#ffffff" opacity="0.6"/>
+          </g>
+          <g>
+            <rect x="312" y="210" width="90" height="150" rx="16" fill="#a9c2e6"/>
+            <rect x="308" y="188" width="98" height="30" rx="9" fill="#cbc9cf"/>
+            <rect x="320" y="250" width="74" height="34" rx="4" fill="#ffffff" opacity="0.6"/>
+          </g>
+          <text x="260" y="420" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="16">Главна слика (hero)</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ТОП ПРОИЗВОДИ ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Бестселери</span>
+        <h2>Нашите топ производи</h2>
+        <p>Омилените производи на нашите клиенти — проверени, сакани и препорачани.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <!-- Картичка производ (повтори по потреба) -->
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#f7e7ec"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#e7aebb"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Хидратантна нега</span>
+            <h3>Хидратантна дневна крема</h3>
+            <p>Лесна формула со природни масла што ја хидрира кожата без чувство на масност.</p>
+            <div class="card__footer">
+              <span class="price">690 ден.</span>
+              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#ece2f3"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#c2a9d6"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Ноќна нега</span>
+            <h3>Регенеративна ноќна крема</h3>
+            <p>Богата крема што ја обновува кожата додека спиете, со екстракт од маслина.</p>
+            <div class="card__footer">
+              <span class="price">890 ден.</span>
+              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#e1ebf7"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#a9c2e6"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Нега за усни</span>
+            <h3>Балсам за усни со восок</h3>
+            <p>Природен балсам што ги негува и штити усните во текот на целиот ден.</p>
+            <div class="card__footer">
+              <span class="price">250 ден.</span>
+              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-40">
+        <a href="products.html" class="btn btn--primary">Сите производи</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ЗА НАС (excerpt) ============ -->
+  <section class="section section--alt about-excerpt">
+    <div class="container">
+      <div class="about-excerpt__media">
+        <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-label="Слика за нас"><rect width="480" height="380" rx="16" fill="#e9e1f2"/><circle cx="240" cy="180" r="90" fill="#d6c8e6"/><text x="240" y="350" text-anchor="middle" fill="#8a8a7e" font-family="Arial" font-size="16">Слика — за нашиот тим / лабораторија</text></svg>
+      </div>
+      <div class="about-excerpt__text">
+        <span class="eyebrow">За Ollea</span>
+        <h2>Природа, наука и грижа во секоја пакувалка</h2>
+        <p>Ollea е семеен бренд од Македонија посветен на создавање природна козметика што ја почитува кожата и животната средина. Нашите формули се развиени локално, тестирани со внимание и направени со љубов.</p>
+        <ul>
+          <li>Природни и одржливи состојки</li>
+          <li>Без тестирање на животни</li>
+          <li>Произведено во Македонија</li>
+          <li>Без парабени и вештачки бои</li>
+        </ul>
+        <p style="margin-top:20px;"><a href="about.html" class="btn btn--outline">Прочитај повеќе за нас</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ КАДЕ СМЕ ПРЕТСТАВЕНИ ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Во медиумите</span>
+        <h2>Каде сме претставени</h2>
+      </div>
+
+      <div class="featured-quote">
+        <blockquote>„Ollea донесува свеж пристап кон природната нега на кожата — едноставни состојки, искрена приказна и резултати што се гледаат."</blockquote>
+        <cite>— Блог за убавина (пример за цитат од друг сајт)</cite>
+      </div>
+
+      <div class="featured-logos">
+        <div class="logo-chip">Beauty Blog МК</div>
+        <div class="logo-chip">Здрав Живот</div>
+        <div class="logo-chip">Магазин Стил</div>
+        <div class="logo-chip">Eco Living</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Искуства</span>
+        <h2>Што велат нашите клиенти</h2>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>„Кожата ми е многу помека откако ја користам дневната крема. Конечно нешто природно што навистина работи."</p>
+          <div class="testimonial__author">
+            <span class="avatar"></span>
+            <span><strong>Марија С.</strong><span>Скопје</span></span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>„Балсамот за усни е дел од мојата секојдневна рутина. Мирисот е прекрасен и трае долго."</p>
+          <div class="testimonial__author">
+            <span class="avatar"></span>
+            <span><strong>Ана Т.</strong><span>Битола</span></span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>„Ми се допаѓа што е домашен бренд со природни состојки. Препорачувам на сите пријателки."</p>
+          <div class="testimonial__author">
+            <span class="avatar"></span>
+            <span><strong>Елена П.</strong><span>Охрид</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ БЛОГ EXCERPT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Од нашиот блог</span>
+        <h2>Совети за нега и природна убавина</h2>
+        <p>Едукативни статии, совети и новости од светот на природната козметика.</p>
+      </div>
+
+      <div class="grid grid--3" id="latestPosts">
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на блог"><rect width="400" height="240" fill="#e9e1f2"/><text x="200" y="125" text-anchor="middle" fill="#9a9a8e" font-family="Arial" font-size="14">Слика на статија</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Нега на кожа • 5 мин</span>
+            <h3>5 чекори за здрава кожа наутро</h3>
+            <p>Едноставна утринска рутина што ќе ѝ даде на кожата енергија за целиот ден.</p>
+            <div class="card__footer">
+              <a href="blog-post.html">Прочитај →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на блог"><rect width="400" height="240" fill="#e9e1f2"/><text x="200" y="125" text-anchor="middle" fill="#9a9a8e" font-family="Arial" font-size="14">Слика на статија</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Состојки • 4 мин</span>
+            <h3>Зошто маслиновото масло е добро за кожата</h3>
+            <p>Откриваме зошто оваа древна состојка е дел од нашите формули.</p>
+            <div class="card__footer">
+              <a href="blog-post.html">Прочитај →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на блог"><rect width="400" height="240" fill="#e9e1f2"/><text x="200" y="125" text-anchor="middle" fill="#9a9a8e" font-family="Arial" font-size="14">Слика на статија</text></svg>
+          </div>
+          <div class="card__body">
+            <span class="card__meta">Совети • 6 мин</span>
+            <h3>Како да изберете крема според типот на кожа</h3>
+            <p>Водич за избор на вистинскиот производ за вашите потреби.</p>
+            <div class="card__footer">
+              <a href="blog-post.html">Прочитај →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-40">
+        <a href="blog.html" class="btn btn--outline">Сите статии</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Приклучете се на Ollea заедницата</h2>
+        <p>Запишете се на нашиот билтен за совети, новости и ексклузивни попусти.</p>
+        <form data-demo-form>
+          <input type="email" placeholder="Вашата е-пошта" required>
+          <button type="submit" class="btn btn--primary" style="background:var(--color-accent);">Запиши се</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ФУТЕР ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="color:#fff;">Oll<span>e</span>a</a>
+          <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
+        </div>
+        <div>
+          <h4>Навигација</h4>
+          <ul>
+            <li><a href="index.html">Дома</a></li>
+            <li><a href="products.html">Производи</a></li>
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Информации</h4>
+          <ul>
+            <li><a href="terms.html">Услови и правила</a></li>
+            <li><a href="terms.html">Политика за приватност</a></li>
+            <li><a href="terms.html">Испорака и враќање</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакт</h4>
+          <ul>
+            <li data-cms="contact.address">ул. Пример бр. 1, Скопје</li>
+            <li><a data-cms="contact.email" href="mailto:info@ollea.mk">info@ollea.mk</a></li>
+            <li><a data-cms="contact.phone" href="tel:+38970000000">+389 70 000 000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Ollea. Сите права задржани.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Најава за администрација (пренасочува до /admin/ по најава) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+  <script src="js/site.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

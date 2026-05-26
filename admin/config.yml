@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Каде се чуваат прикачените слики
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Јазик на интерфејсот
+locale: "mk"
+
+collections:
+  # ---------- БЛОГ ----------
+  - name: "blog"
+    label: "Блог"
+    files:
+      - name: "posts"
+        label: "Блог постови"
+        file: "content/blog.json"
+        format: "json"
+        description: "Додавај, уредувај и бриши блог постови."
+        fields:
+          - name: "posts"
+            label: "Постови"
+            label_singular: "Пост"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Наслов", widget: "string" }
+              - { name: "slug", label: "URL слаг (опционално)", widget: "string", required: false, hint: "Пр. 5-cekori-za-zdrava-koza. Ако е празно, се генерира од насловот." }
+              - { name: "date", label: "Датум", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { name: "category", label: "Категорија", widget: "string", required: false }
+              - { name: "readTime", label: "Време на читање", widget: "string", required: false, hint: "Пр. 5 мин" }
+              - { name: "summary", label: "Краток опис", widget: "text" }
+              - { name: "cover", label: "Главна слика", widget: "image", required: false }
+              - { name: "body", label: "Содржина", widget: "markdown" }
+
+  # ---------- ПОСТАВКИ ----------
+  - name: "settings"
+    label: "Поставки"
+    files:
+      - name: "general"
+        label: "Почетна и контакт"
+        file: "content/settings.json"
+        format: "json"
+        description: "Уреди го текстот на почетната страница и контакт податоците."
+        fields:
+          - name: "hero"
+            label: "Почетна (hero)"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Мала ознака", widget: "string", required: false }
+              - { name: "title", label: "Главен наслов", widget: "string" }
+              - { name: "subtitle", label: "Поднаслов", widget: "text" }
+          - name: "contact"
+            label: "Контакт"
+            widget: "object"
+            fields:
+              - { name: "address", label: "Адреса", widget: "string" }
+              - { name: "email", label: "Е-пошта", widget: "string" }
+              - { name: "phone", label: "Телефон", widget: "string" }
