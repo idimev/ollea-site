@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кошничка и нарачка — Ollea</title>
+  <meta name="description" content="Вашата кошничка и нарачка од Ollea — плаќање при достава или со банкарски трансфер.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ХЕДЕР -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/ollea-logo.png" /></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Дома</a>
+        <a href="products.html">Производи</a>
+        <a href="about.html">За нас</a>
+        <a href="blog.html">Блог</a>
+        <a href="naracka.html" class="btn btn--primary" style="padding:9px 20px;">Кошничка (<span data-cart-count>0</span>)</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Мени">☰</button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Кошничка и нарачка</span>
+      <h1>Вашата нарачка</h1>
+      <p>Проверете ја кошничката и пополнете ги податоците. Плаќате при достава или со банкарски трансфер — без онлајн картичка.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Дома</a> / <a href="products.html">Производи</a> / Кошничка</nav>
+  </div>
+
+  <!-- НАРАЧКА -->
+  <section class="section">
+    <div class="container">
+      <div class="order-grid">
+
+        <!-- Лево: кошничка + форма -->
+        <div>
+          <!-- Кошничка -->
+          <div class="cart-panel">
+            <h3 style="margin-bottom:10px;">Вашата кошничка</h3>
+            <div id="cartEmpty" class="cart-empty">
+              Кошничката е празна. <a href="products.html">Разгледајте ги производите</a> и додадете нешто.
+            </div>
+            <div id="cartItems"></div>
+            <div id="cartTotals" class="cart-totals" style="display:none;"></div>
+            <p style="margin:14px 0 0;"><a href="products.html">+ Додај уште производи</a></p>
+          </div>
+
+          <!-- Форма (Netlify Forms) -->
+          <form name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/blagodarime.html" class="order-form">
+            <input type="hidden" name="form-name" value="order">
+            <p hidden><label>Не пополнувај го ова поле: <input name="bot-field"></label></p>
+            <!-- Содржината на кошничката (се пополнува автоматски) -->
+            <textarea id="orderField" name="Нарачка" hidden></textarea>
+
+            <fieldset>
+              <legend>Начин на плаќање</legend>
+              <label><input type="radio" name="Начин на плаќање" value="Плаќање при достава" checked> Плаќање при достава (готовина)</label>
+              <label><input type="radio" name="Начин на плаќање" value="Банкарски трансфер"> Банкарски трансфер</label>
+            </fieldset>
+
+            <label>Име и презиме
+              <input type="text" name="Име и презиме" required>
+            </label>
+
+            <div class="form-row">
+              <label>Телефон
+                <input type="tel" name="Телефон" required>
+              </label>
+              <label>Е-пошта (опционално)
+                <input type="email" name="Е-пошта">
+              </label>
+            </div>
+
+            <label>Адреса за достава
+              <input type="text" name="Адреса" required>
+            </label>
+
+            <div class="form-row">
+              <label>Град
+                <input type="text" name="Град" required>
+              </label>
+              <label>Поштенски број (опционално)
+                <input type="text" name="Поштенски број">
+              </label>
+            </div>
+
+            <label>Забелешка (опционално)
+              <textarea name="Забелешка" placeholder="Дополнителни информации за нарачката или доставата"></textarea>
+            </label>
+
+            <button type="submit" id="orderSubmit" class="btn btn--primary btn--block">Испрати нарачка</button>
+            <p class="muted" style="font-size:.85rem; margin-top:12px;">Со испраќање на нарачката се согласувате со нашите <a href="terms.html">Услови и правила</a>.</p>
+          </form>
+        </div>
+
+        <!-- Десно: начини на плаќање (уредливо од админот) -->
+        <aside class="order-aside">
+          <h3>Како функционира</h3>
+          <p class="muted" style="font-size:.92rem;">По испраќањето на формата ве контактираме за да ја потврдиме нарачката и доставата.</p>
+
+          <div class="pay-block">
+            <h4 style="margin:0 0 6px;">Плаќање при достава</h4>
+            <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.codNote">Плаќате во готово при прием на пратката.</p>
+          </div>
+
+          <div class="pay-block">
+            <h4 style="margin:0 0 6px;">Банкарски трансфер</h4>
+            <dl>
+              <dt>Примач</dt>
+              <dd data-cms="payment.accountName">Ollea ДООЕЛ (пример)</dd>
+              <dt>Банка</dt>
+              <dd data-cms="payment.bankName">[Име на банка]</dd>
+              <dt>Сметка / IBAN</dt>
+              <dd data-cms="payment.iban">MK00 0000 0000 0000 00</dd>
+            </dl>
+            <p class="muted" style="font-size:.85rem; margin:0;">Како цел на дознака наведете го вашето име. Пратката се испраќа по прием на уплатата.</p>
+          </div>
+
+          <div class="pay-block">
+            <h4 style="margin:0 0 6px;">Достава</h4>
+            <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.deliveryNote">Достава низ цела Македонија: 130 ден. Бесплатна достава над 1.500 ден. (пример)</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="images/ollea-logo-w.png" /></a>
+          <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
+        </div>
+        <div>
+          <h4>Навигација</h4>
+          <ul>
+            <li><a href="index.html">Дома</a></li>
+            <li><a href="products.html">Производи</a></li>
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Информации</h4>
+          <ul>
+            <li><a href="terms.html">Услови и правила</a></li>
+            <li><a href="terms.html">Политика за приватност</a></li>
+            <li><a href="terms.html">Испорака и враќање</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакт</h4>
+          <ul>
+            <li data-cms="contact.address">ул. Пример бр. 1, Скопје</li>
+            <li><a data-cms="contact.email" href="mailto:info@ollea.mk">info@ollea.mk</a></li>
+            <li><a data-cms="contact.phone" href="tel:+38970000000">+389 70 000 000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Ollea. Сите права задржани.</div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -12,13 +12,13 @@
   <!-- ХЕДЕР -->
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="logo">Oll<span>e</span>a</a>
+      <a href="index.html" class="logo"><img src="images/ollea-logo.png" /></a>
       <nav class="nav" id="mainNav">
         <a href="index.html">Дома</a>
         <a href="products.html">Производи</a>
         <a href="about.html">За нас</a>
         <a href="blog.html">Блог</a>
-        <a href="proizvod.html" class="btn btn--primary" style="padding:9px 20px;">Купи сега</a>
+        <a href="naracka.html" class="btn btn--primary" style="padding:9px 20px;">Кошничка (<span data-cart-count>0</span>)</a>
       </nav>
       <button class="nav-toggle" aria-label="Мени">☰</button>
     </div>
@@ -37,10 +37,10 @@
     <nav class="breadcrumb"><a href="index.html">Дома</a> / Производи</nav>
   </div>
 
-  <!-- ЛИСТА НА ПРОИЗВОДИ -->
+  <!-- ЛИСТА НА ПРОИЗВОДИ (се полни од content/products.json) -->
   <section class="section">
     <div class="container">
-      <div class="grid grid--3">
+      <div class="grid grid--3" id="productList">
 
         <!-- Производ 1 -->
         <article class="card">
@@ -53,7 +53,7 @@
             <p>Лесна формула со природни масла што ја хидрира кожата без чувство на масност. Погодна за секојдневна употреба.</p>
             <div class="card__footer">
               <span class="price">690 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Хидратантна дневна крема" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -69,7 +69,7 @@
             <p>Богата крема што ја обновува кожата додека спиете, со екстракт од маслина и витамин Е.</p>
             <div class="card__footer">
               <span class="price">890 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Регенеративна ноќна крема" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -85,7 +85,7 @@
             <p>Природен балсам што ги негува и штити усните во текот на целиот ден. Со пчелин восок и масло од каранфил.</p>
             <div class="card__footer">
               <span class="price">250 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Балсам за усни со восок" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -101,7 +101,7 @@
             <p>Лесен лосион што длабоко ја негува кожата на телото со ароми од лаванда.</p>
             <div class="card__footer">
               <span class="price">540 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Хидратантен лосион за тело" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -117,7 +117,7 @@
             <p>Гел без сапун што нежно ги отстранува нечистотиите без да ја исуши кожата.</p>
             <div class="card__footer">
               <span class="price">470 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Нежен гел за чистење лице" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -133,7 +133,7 @@
             <p>Богата крема што ги храни и штити рацете од сувост, особено во зимскиот период.</p>
             <div class="card__footer">
               <span class="price">320 ден.</span>
-              <a href="proizvod.html" class="btn btn--primary" style="padding:9px 18px;">Купи</a>
+              <a href="proizvod.html?proizvod=Заштитна крема за раце" class="btn btn--primary" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -147,7 +147,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="logo" style="color:#fff;">Oll<span>e</span>a</a>
+          <a href="index.html" class="logo"><img src="images/ollea-logo-w.png" /></a>
           <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
         </div>
         <div>
@@ -180,6 +180,8 @@
     </div>
   </footer>
 
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
   <script src="js/site.js"></script>
   <script src="js/script.js"></script>
 </body>

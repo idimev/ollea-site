@@ -85,3 +85,24 @@ When you open the files directly from your computer (double-click), the blog lis
 - Uploaded images: `images/uploads/`
 
 If anything in the setup gets stuck, tell me which step and what you see — I'll walk you through it.
+
+---
+
+## Orders (the "Нарачка" page)
+
+The site has a **basket + order page** at `naracka.html`. Customers click **Додај** / **Додај во кошничка** on the products, the header shows a live **Кошничка (N)** count, and on the order page they review the basket (adjust quantities, remove items), then pay by **cash-on-delivery** or **bank transfer** — no card details are ever entered, so there's nothing sensitive to secure on your side. The whole basket is submitted as a single order in the **Нарачка** field.
+
+The basket is stored in the customer's own browser (no server needed). Products now come from a single source: **Производи** in the admin (the file `content/products.json`). Edit a product once — name, price, description, image, category — and it updates everywhere: the products list, the product page, and the basket totals.
+
+### Seeing the orders
+Order submissions are handled by **Netlify Forms** (built into your hosting, free up to 100 submissions/month):
+1. In Netlify, open your site → **Forms** tab → form named **order**. Every submission appears there.
+2. To get an email each time someone orders: **Forms → Form notifications → Add notification → Email notification**, and enter your email.
+
+> Note: Netlify only registers the form after a normal deploy of the site (it scans the HTML). After the first deploy with `naracka.html`, submit one test order yourself to confirm it shows up in the Forms tab.
+
+### Editing the bank details and delivery text
+The bank account, delivery fee and payment notes shown on the order page are **placeholders you edit in the admin**: go to **Поставки → Почетна и контакт → Плаќање и достава** and fill in your real account name, bank, IBAN, and delivery text. Save and Publish.
+
+### Later: real card payments
+When you want to accept cards, that's a separate step through a Macedonian bank (CaSys cPay) — tell me and we'll add it. Until then this form covers cash-on-delivery and bank transfer, which is enough to start taking orders.

@@ -11,7 +11,7 @@
       "body": "Тука внесете вовед во статијата — кратко објаснување за тоа што читателот ќе научи.\n\n## 1. Започнете со нежно чистење\nОпис на првиот чекор. Можете да додадете детали и совети.\n\n## 2. Нанесете тоник\nОпис на вториот чекор со практични совети за читателот.\n\n> Доследноста е клучот за здрава кожа — мала секојдневна грижа носи големи резултати.\n\n## 3. Хидратација\nОпис на третиот чекор.\n\n## 4. Заштита од сонце\nОпис на четвртиот чекор и зошто е важен дури и во облачни денови.\n\n## 5. Внесувајте доволно вода\nОпис на петтиот чекор и заклучок на статијата."
     },
     {
-      "title": "Зошто маслиновото масло е добро за кожата 2",
+      "title": "Зошто маслиновото масло е добро за кожата",
       "slug": "maslinovo-maslo-za-koza",
       "date": "2026-05-18",
       "category": "Состојки",
@@ -29,14 +29,6 @@
       "summary": "Водич за избор на вистинскиот производ за вашите потреби.",
       "cover": "",
       "body": "Секоја кожа е различна. Во оваа статија ќе ви помогнеме да го изберете вистинскиот производ.\n\n## Нормална кожа\nОпис.\n\n## Сува кожа\nОпис.\n\n## Мрсна кожа\nОпис."
-    },
-    {
-      "title": "Nov post",
-      "date": "2026-05-26",
-      "category": "novo",
-      "readTime": "15min",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sapien semper, pharetra turpis et, bibendum felis. Nullam sit amet porta tortor. ",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sapien semper, pharetra turpis et, bibendum felis. Nullam sit amet porta tortor. Donec et convallis erat, ac interdum velit. Phasellus blandit ex est, a pretium est vestibulum vitae. Mauris posuere nisi sapien, ac eleifend enim facilisis ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse maximus orci id purus condimentum, non pharetra libero rutrum. Curabitur efficitur, lectus nec commodo sagittis, magna elit convallis dolor, nec convallis mauris odio quis nunc. Suspendisse ut libero at nibh vehicula bibendum. In ut nulla est. Etiam in euismod metus. Fusce facilisis porttitor lorem hendrerit sodales."
     }
   ]
 }

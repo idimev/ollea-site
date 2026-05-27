@@ -12,13 +12,13 @@
   <!-- ============ ХЕДЕР ============ -->
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="logo">Oll<span>e</span>a</a>
+      <a href="index.html" class="logo"><img src="images/ollea-logo.png" /></a>
       <nav class="nav" id="mainNav">
         <a href="index.html">Дома</a>
         <a href="products.html">Производи</a>
         <a href="about.html">За нас</a>
         <a href="blog.html">Блог</a>
-        <a href="proizvod.html" class="btn btn--primary" style="padding:9px 20px;">Купи сега</a>
+        <a href="naracka.html" class="btn btn--primary" style="padding:9px 20px;">Кошничка (<span data-cart-count>0</span>)</a>
       </nav>
       <button class="nav-toggle" aria-label="Мени">☰</button>
     </div>
@@ -36,36 +36,7 @@
           <a href="about.html" class="btn btn--outline">Нашата приказна</a>
         </div>
       </div>
-      <div class="hero__media">
-        <!-- SVG placeholder -->
-        <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Слика на производ">
-          <defs>
-            <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#f7e7ec"/>
-              <stop offset="0.5" stop-color="#ece2f3"/>
-              <stop offset="1" stop-color="#e1ebf7"/>
-            </linearGradient>
-          </defs>
-          <rect width="520" height="460" rx="16" fill="url(#heroBg)"/>
-          <!-- три тегли (розова, лаванда, сина) -->
-          <g>
-            <rect x="120" y="210" width="90" height="150" rx="16" fill="#e7aebb"/>
-            <rect x="116" y="188" width="98" height="30" rx="9" fill="#cbc9cf"/>
-            <rect x="128" y="250" width="74" height="34" rx="4" fill="#ffffff" opacity="0.6"/>
-          </g>
-          <g>
-            <rect x="215" y="180" width="92" height="180" rx="16" fill="#c2a9d6"/>
-            <rect x="211" y="156" width="100" height="32" rx="10" fill="#cbc9cf"/>
-            <rect x="224" y="226" width="74" height="38" rx="4" fill="#ffffff" opacity="0.6"/>
-          </g>
-          <g>
-            <rect x="312" y="210" width="90" height="150" rx="16" fill="#a9c2e6"/>
-            <rect x="308" y="188" width="98" height="30" rx="9" fill="#cbc9cf"/>
-            <rect x="320" y="250" width="74" height="34" rx="4" fill="#ffffff" opacity="0.6"/>
-          </g>
-          <text x="260" y="420" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="16">Главна слика (hero)</text>
-        </svg>
-      </div>
+      <div class="hero__media"><img src="images/herou-main.png" /></div>
     </div>
   </section>
 
@@ -81,46 +52,40 @@
       <div class="grid grid--3">
         <!-- Картичка производ (повтори по потреба) -->
         <article class="card">
-          <div class="card__media">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#f7e7ec"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#e7aebb"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
-          </div>
+          <div class="card__media"><img src="images/products/p1.jpg" /></div>
           <div class="card__body">
             <span class="card__meta">Хидратантна нега</span>
             <h3>Хидратантна дневна крема</h3>
             <p>Лесна формула со природни масла што ја хидрира кожата без чувство на масност.</p>
             <div class="card__footer">
               <span class="price">690 ден.</span>
-              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+              <a href="proizvod.html?proizvod=Хидратантна дневна крема" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card__media">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#ece2f3"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#c2a9d6"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
-          </div>
+          <div class="card__media"><img src="images/products/p2.jpg" /></div>
           <div class="card__body">
             <span class="card__meta">Ноќна нега</span>
             <h3>Регенеративна ноќна крема</h3>
             <p>Богата крема што ја обновува кожата додека спиете, со екстракт од маслина.</p>
             <div class="card__footer">
               <span class="price">890 ден.</span>
-              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+              <a href="proizvod.html?proizvod=Регенеративна ноќна крема" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card__media">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Слика на производ"><rect width="400" height="300" fill="#e1ebf7"/><rect x="150" y="120" width="100" height="125" rx="16" fill="#a9c2e6"/><rect x="158" y="165" width="84" height="40" rx="4" fill="#ffffff" opacity="0.65"/><rect x="148" y="96" width="104" height="32" rx="10" fill="#cbc9cf"/><text x="200" y="275" text-anchor="middle" fill="#9a8aa0" font-family="Arial" font-size="14">Слика на производ</text></svg>
-          </div>
+          <div class="card__media"><img src="images/products/p3.jpg" /></div>
           <div class="card__body">
             <span class="card__meta">Нега за усни</span>
             <h3>Балсам за усни со восок</h3>
             <p>Природен балсам што ги негува и штити усните во текот на целиот ден.</p>
             <div class="card__footer">
               <span class="price">250 ден.</span>
-              <a href="proizvod.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
+              <a href="proizvod.html?proizvod=Балсам за усни со восок" class="btn btn--outline" style="padding:9px 18px;">Детали</a>
             </div>
           </div>
         </article>
@@ -135,9 +100,7 @@
   <!-- ============ ЗА НАС (excerpt) ============ -->
   <section class="section section--alt about-excerpt">
     <div class="container">
-      <div class="about-excerpt__media">
-        <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-label="Слика за нас"><rect width="480" height="380" rx="16" fill="#e9e1f2"/><circle cx="240" cy="180" r="90" fill="#d6c8e6"/><text x="240" y="350" text-anchor="middle" fill="#8a8a7e" font-family="Arial" font-size="16">Слика — за нашиот тим / лабораторија</text></svg>
-      </div>
+      <div class="about-excerpt__media"><img src="images/team.jpg" /></div>
       <div class="about-excerpt__text">
         <span class="eyebrow">За Ollea</span>
         <h2>Природа, наука и грижа во секоја пакувалка</h2>
@@ -288,7 +251,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="logo" style="color:#fff;">Oll<span>e</span>a</a>
+          <a href="index.html" class="logo"><img src="images/ollea-logo-w.png" /></a>
           <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
         </div>
         <div>
@@ -334,6 +297,7 @@
       });
     }
   </script>
+  <script src="js/cart.js"></script>
   <script src="js/site.js"></script>
   <script src="js/script.js"></script>
 </body>

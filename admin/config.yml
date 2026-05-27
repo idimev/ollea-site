@@ -35,6 +35,33 @@ collections:
               - { name: "cover", label: "Главна слика", widget: "image", required: false }
               - { name: "body", label: "Содржина", widget: "markdown" }
 
+  # ---------- ПРОИЗВОДИ ----------
+  - name: "products"
+    label: "Производи"
+    files:
+      - name: "list"
+        label: "Производи"
+        file: "content/products.json"
+        format: "json"
+        description: "Додавај, уредувај и бриши производи. Се прикажуваат на страницата Производи, на страницата за производ и во кошничката."
+        fields:
+          - name: "products"
+            label: "Производи"
+            label_singular: "Производ"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}} ден."
+            fields:
+              - { name: "name", label: "Име", widget: "string" }
+              - { name: "slug", label: "URL слаг", widget: "string", hint: "Пр. hidratantna-dnevna-krema" }
+              - { name: "category", label: "Категорија", widget: "string", required: false }
+              - { name: "price", label: "Цена (ден.)", widget: "number", value_type: "int", min: 0 }
+              - { name: "summary", label: "Краток опис (за листата)", widget: "text" }
+              - { name: "description", label: "Детален опис", widget: "text" }
+              - { name: "image", label: "Слика", widget: "image", required: false }
+              - { name: "code", label: "Шифра", widget: "string", required: false }
+              - { name: "skinType", label: "Тип на кожа", widget: "string", required: false }
+              - { name: "volume", label: "Волумен", widget: "string", required: false }
+
   # ---------- ПОСТАВКИ ----------
   - name: "settings"
     label: "Поставки"
@@ -59,3 +86,12 @@ collections:
               - { name: "address", label: "Адреса", widget: "string" }
               - { name: "email", label: "Е-пошта", widget: "string" }
               - { name: "phone", label: "Телефон", widget: "string" }
+          - name: "payment"
+            label: "Плаќање и достава (страница Нарачка)"
+            widget: "object"
+            fields:
+              - { name: "accountName", label: "Примач (име на сметка)", widget: "string" }
+              - { name: "bankName", label: "Банка", widget: "string" }
+              - { name: "iban", label: "Сметка / IBAN", widget: "string" }
+              - { name: "codNote", label: "Текст за плаќање при достава", widget: "text" }
+              - { name: "deliveryNote", label: "Текст за достава", widget: "text" }
