@@ -65,6 +65,10 @@
     set('pdCode', p.code);
     set('pdSkin', p.skinType);
     set('pdVolume', p.volume);
+    var mediaEl = document.getElementById('pdMedia');
+    if (mediaEl) mediaEl.innerHTML = media(p);
+    var thumbsEl = document.getElementById('pdThumbs');
+    if (thumbsEl) thumbsEl.innerHTML = '<div class="card__media">' + media(p) + '</div>';
     var btn = document.getElementById('pdAddBtn');
     if (btn) btn.setAttribute('data-add', p.name);
     if (p.name) document.title = p.name + ' — Ollea';

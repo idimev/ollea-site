@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petroleum Jelly — Ollea</title>
+  <meta name="description" content="Вазелин со екстракт од невен и Д-Пантенол за секојдневна нега на чувствителна и иритирана кожа.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ХЕДЕР -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/ollea-logo.png" /></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Дома</a>
+        <a href="products.html">Производи</a>
+        <a href="about.html">За нас</a>
+        <a href="blog.html">Блог</a>
+        <a href="naracka.html" class="btn btn--primary" style="padding:9px 20px;">Кошничка (<span data-cart-count>0</span>)</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Мени">☰</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Дома</a> / <a href="products.html">Производи</a> / <span>Petroleum Jelly</span></nav>
+  </div>
+
+  <!-- ДЕТАЛИ ЗА ПРОИЗВОД -->
+  <section class="product-detail">
+    <div class="container">
+
+      <!-- Галерија -->
+      <div class="product-gallery">
+        <div class="card__media" style="border-radius:14px; border:1px solid var(--color-line);">
+          <img src="images/products/vaseline.jpg" alt="Petroleum Jelly" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+
+      <!-- Инфо + купување -->
+      <div class="product-info">
+        <span class="eyebrow">Нега за чувствителна кожа</span>
+        <h1>Petroleum Jelly</h1>
+        <div class="stars">★★★★★ <span class="muted" style="font-size:.85rem;">(24 рецензии)</span></div>
+        <div class="price">290 ден.</div>
+        <p class="stock">✓ На залиха — испорака за 2–4 работни дена</p>
+
+        <p>Ollea вазелинот со екстракт од невен и Д-Пантенол е наменет за секојдневна нега на чувствителна и иритирана кожа. Д-Пантенолот помага во одржување на оптимална влажност на кожата, а маслото од невен ја смирува и негува Вашата кожа. Се препорачува да се нанесува неколку пати на ден.</p>
+
+        <!-- Опции -->
+        <label style="display:block; font-weight:600; margin-bottom:8px;">Пакување</label>
+        <select style="padding:11px 16px; border:1px solid var(--color-line); border-radius:8px; font-size:1rem; width:240px; margin-bottom:22px;">
+          <option>50 ml — 290 ден.</option>
+        </select>
+
+        <!-- Количина -->
+        <div class="qty" data-qty>
+          <span style="font-weight:600;">Количина</span>
+          <button class="btn btn--outline" data-qty-minus style="padding:8px 16px;">−</button>
+          <input type="number" value="1" min="1" aria-label="Количина">
+          <button class="btn btn--outline" data-qty-plus style="padding:8px 16px;">+</button>
+        </div>
+
+        <!-- Копчиња за купување -->
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button type="button" id="pdAddBtn" class="btn btn--primary" style="flex:1; min-width:180px;" data-add="Petroleum Jelly">Додај во кошничка</button>
+          <a href="naracka.html" class="btn btn--outline" style="flex:1; min-width:180px;">Кон кошничка</a>
+        </div>
+
+        <!-- Кратки информации -->
+        <ul class="product-meta-list">
+          <li><span>Шифра на производ</span><span>OLL-PJ-050</span></li>
+          <li><span>Тип на кожа</span><span>Чувствителна, иритирана</span></li>
+          <li><span>Волумен</span><span>50 ml</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS со повеќе информации -->
+  <section class="container" style="padding-bottom:60px;">
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="active" data-tab="opis">Опис</button>
+        <button data-tab="upotreba">Употреба</button>
+        <button data-tab="isporaka">Испорака</button>
+      </div>
+
+      <div class="tab-panel active" id="opis">
+        <h3>Опис на производот</h3>
+        <p>Ollea вазелинот со екстракт од невен и Д-Пантенол е наменет за секојдневна нега на чувствителна и иритирана кожа. Д-Пантенолот помага во одржување на оптимална влажност на кожата, а маслото од невен ја смирува и негува Вашата кожа. Се препорачува да се нанесува неколку пати на ден.</p>
+      </div>
+
+      <div class="tab-panel" id="upotreba">
+        <h3>Како се користи</h3>
+        <p>Нанесете според потребите за нега. За најдобри резултати, користете редовно како дел од вашата секојдневна рутина.</p>
+      </div>
+
+      <div class="tab-panel" id="isporaka">
+        <h3>Испорака и враќање</h3>
+        <p>Испорака низ цела Македонија за 2–4 работни дена. Бесплатна испорака за нарачки над 1.500 ден. Можност за враќање во рок од 14 дена. Повеќе во <a href="terms.html">Услови и правила</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОВРЗАНИ ПРОИЗВОДИ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Можеби ќе ви се допадне</span>
+        <h2>Поврзани производи</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <div class="card__media"><img src="images/products/stretch-mark-cream.jpg" alt="Stretch Mark Cream" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="card__body">
+            <h3>Stretch Mark Cream</h3>
+            <div class="card__footer"><span class="price">1.290 ден.</span><a href="proizvod-stretch-mark-cream.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media"><img src="images/products/goatmilk-soap.jpg" alt="Козји сапун" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="card__body">
+            <h3>Козји сапун</h3>
+            <div class="card__footer"><span class="price">250 ден.</span><a href="proizvod-kozji-sapun.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media"><img src="images/products/glycerol-soap.jpg" alt="Глицерински сапун" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="card__body">
+            <h3>Глицерински сапун</h3>
+            <div class="card__footer"><span class="price">250 ден.</span><a href="proizvod-glicerinski-sapun.html" class="btn btn--outline" style="padding:9px 18px;">Детали</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="images/ollea-logo-w.png" /></a>
+          <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
+        </div>
+        <div>
+          <h4>Навигација</h4>
+          <ul>
+            <li><a href="index.html">Дома</a></li>
+            <li><a href="products.html">Производи</a></li>
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Информации</h4>
+          <ul>
+            <li><a href="terms.html">Услови и правила</a></li>
+            <li><a href="privatnost.html">Политика за приватност</a></li>
+            <li><a href="vrakjane.html">Испорака и враќање</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакт</h4>
+          <ul>
+            <li data-cms="contact.address">ул. Пример бр. 1, Скопје</li>
+            <li><a data-cms="contact.email" href="mailto:info@ollea.mk">info@ollea.mk</a></li>
+            <li><a data-cms="contact.phone" href="tel:+38970000000">+389 70 000 000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Ollea. Сите права задржани.</div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

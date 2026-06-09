@@ -8,8 +8,8 @@
   --color-bg: #faf7fa;          /* мек лаванда-крем */
   --color-surface: #ffffff;
   --color-surface-alt: #f2ecf3; /* нежна лаванда */
-  --color-primary: #8a7196;     /* мека мауве/лаванда */
-  --color-primary-dark: #6b5577;
+  --color-primary: #9c7bc5;     /* мека мауве/лаванда */
+  --color-primary-dark: #8769ab;
   --color-accent: #cf9a3c;      /* злато (од логото) */
   --color-text: #443e4a;
   --color-muted: #837b8a;
@@ -308,8 +308,8 @@ img, svg { max-width: 100%; display: block; }
 .cta-band input { flex: 1; min-width: 200px; padding: 13px 18px; border-radius: 999px; border: 0; font-size: 1rem; }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--color-primary-dark); color: #e8e3d6; padding: 60px 0 28px; margin-top: 0; }
-.site-footer a { color: #d8d2c2; }
+.site-footer { background: url("../images/footer.jpg"); background-size: cover; color: #e8e3d6; padding: 60px 0 28px; margin-top: 0; }
+.site-footer a { color: #fff; }
 .site-footer a:hover { color: #fff; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; }
 .footer-grid h4 { color: #fff; font-size: 1.05rem; }
