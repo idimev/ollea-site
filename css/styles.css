@@ -301,7 +301,7 @@ img, svg { max-width: 100%; display: block; }
 .legal ol, .legal ul { color: var(--color-muted); }
 
 /* ---------- Newsletter / CTA band ---------- */
-.cta-band { background: url("../images/box-bg.jpg"); color: #000; border-radius: var(--radius); padding: 50px; text-align: center; }
+.cta-band { background: url("../images/box-bg.jpg"); color: #000; border-radius: var(--radius); padding: 50px; text-align: center; background-size: cover; }
 .cta-band h2 { color: #333; text-shadow: 1px 1px 2px #fff; }
 .cta-band p { color: #333; max-width: 520px; margin: 0 auto 22px; }
 .cta-band form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; }
