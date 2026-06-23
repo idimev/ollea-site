@@ -231,8 +231,10 @@
       <div class="cta-band">
         <h2>Приклучете се на Ollea заедницата</h2>
         <p>Запишете се на нашиот билтен за совети, новости и ексклузивни попусти.</p>
-        <form data-demo-form>
-          <input type="email" placeholder="Вашата е-пошта" required>
+        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/blagodarime.html">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p hidden><label>Не пополнувај го ова поле: <input name="bot-field"></label></p>
+          <input type="email" name="email" placeholder="Вашата е-пошта" required>
           <button type="submit" class="btn btn--primary" style="background:var(--color-accent);">Запиши се</button>
         </form>
       </div>
