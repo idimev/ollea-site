@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кошничка и нарачка — Ollea</title>
-  <meta name="description" content="Вашата кошничка и нарачка од Ollea — плаќање при достава или со банкарски трансфер.">
+  <meta name="description" content="Вашата кошничка и нарачка од Ollea — плаќање при достава (готовина).">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -29,7 +33,7 @@
     <div class="container">
       <span class="eyebrow">Кошничка и нарачка</span>
       <h1>Вашата нарачка</h1>
-      <p>Проверете ја кошничката и пополнете ги податоците. Плаќате при достава или со банкарски трансфер — без онлајн картичка.</p>
+      <p>Проверете ја кошничката и пополнете ги податоците. Плаќате при достава (готовина) — без онлајн картичка.</p>
     </div>
   </section>
 
@@ -65,7 +69,9 @@
             <fieldset>
               <legend>Начин на плаќање</legend>
               <label><input type="radio" name="Начин на плаќање" value="Плаќање при достава" checked> Плаќање при достава (готовина)</label>
+              <!-- Привремено оневозможено — ќе се врати кога ќе биде подготвено
               <label><input type="radio" name="Начин на плаќање" value="Банкарски трансфер"> Банкарски трансфер</label>
+              -->
             </fieldset>
 
             <label>Име и презиме
@@ -113,11 +119,12 @@
             <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.codNote">Плаќате во готово при прием на пратката.</p>
           </div>
 
+          <!-- Привремено оневозможено — ќе се врати кога ќе биде подготвено
           <div class="pay-block">
             <h4 style="margin:0 0 6px;">Банкарски трансфер</h4>
             <dl>
               <dt>Примач</dt>
-              <dd data-cms="payment.accountName">Ollea ДООЕЛ (пример)</dd>
+              <dd data-cms="payment.accountName">Ollea ДООЕЛ</dd>
               <dt>Банка</dt>
               <dd data-cms="payment.bankName">[Име на банка]</dd>
               <dt>Сметка / IBAN</dt>
@@ -125,10 +132,12 @@
             </dl>
             <p class="muted" style="font-size:.85rem; margin:0;">Како цел на дознака наведете го вашето име. Пратката се испраќа по прием на уплатата.</p>
           </div>
+          -->
+          <!-- За повторно вклучување: отстранете ги коментарите овде и кај радио-копчето во формата погоре. -->
 
           <div class="pay-block">
             <h4 style="margin:0 0 6px;">Достава</h4>
-            <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.deliveryNote">Достава низ цела Македонија: 130 ден. Бесплатна достава над 1.500 ден. (пример)</p>
+            <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.deliveryNote">Достава низ цела Македонија: 130 ден. Бесплатна достава над 1.500 ден.</p>
           </div>
         </aside>
 
