@@ -1,0 +1,20 @@
+# Netlify конфигурација.
+# Намерно НЕМА [build] publish — таа поставка останува како што е
+# наместена во Netlify (Publish directory = коренот на репозиториумот),
+# за да не се промени постоечкото однесување на сајтот.
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  # Функцијата create-payment ја чита цената од овие датотеки преку require().
+  # Ги наведуваме експлицитно за да бидат сигурно спакувани со функцијата.
+  included_files = ["content/products.json", "content/settings.json"]
+
+[build.environment]
+  # Netlify го скенира излезот од build-от за вредности на променливите на
+  # околината. SITE_URL и HALKBANK_GATE_URL постојат како fallback вредности
+  # во кодот на функцијата, па скенерот би ги пријавил и би го паднал build-от.
+  # Ниту едната не е тајна — тоа се јавни адреси.
+  # HALKBANK_STORE_KEY и HALKBANK_CLIENT_ID НЕ се тука: тие мора да останат
+  # под скенирање, зашто никогаш не смеат да се појават во излезот.
+  SECRETS_SCAN_OMIT_KEYS = "SITE_URL,HALKBANK_GATE_URL"
