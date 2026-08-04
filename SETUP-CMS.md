@@ -90,7 +90,9 @@ If anything in the setup gets stuck, tell me which step and what you see — I'l
 
 ## Orders (the "Нарачка" page)
 
-The site has a **basket + order page** at `naracka.html`. Customers click **Додај** / **Додај во кошничка** on the products, the header shows a live **Кошничка (N)** count, and on the order page they review the basket (adjust quantities, remove items), then pay by **cash-on-delivery** or **bank transfer** — no card details are ever entered, so there's nothing sensitive to secure on your side. The whole basket is submitted as a single order in the **Нарачка** field.
+The site has a **basket + order page** at `naracka.html`. Customers click **Додај** / **Додај во кошничка** on the products, the header shows a live **Кошничка (N)** count, and on the order page they review the basket (adjust quantities, remove items), then pay either **cash-on-delivery** or **by card**. The whole basket is submitted as a single order in the **Нарачка** field.
+
+Card details are entered on **Halkbank's own secure page**, never on ollea.mk — the site never sees, transmits or stores a card number, so there is nothing sensitive stored on your side.
 
 The basket is stored in the customer's own browser (no server needed). Products now come from a single source: **Производи** in the admin (the file `content/products.json`). Edit a product once — name, price, description, image, category — and it updates everywhere: the products list, the product page, and the basket totals.
 
@@ -101,8 +103,39 @@ Order submissions are handled by **Netlify Forms** (built into your hosting, fre
 
 > Note: Netlify only registers the form after a normal deploy of the site (it scans the HTML). After the first deploy with `naracka.html`, submit one test order yourself to confirm it shows up in the Forms tab.
 
-### Editing the bank details and delivery text
-The bank account, delivery fee and payment notes shown on the order page are **placeholders you edit in the admin**: go to **Поставки → Почетна и контакт → Плаќање и достава** and fill in your real account name, bank, IBAN, and delivery text. Save and Publish.
+### Editing the delivery cost and payment text
+Go to **Поставки → Почетна и контакт → Плаќање и достава**. Two of these fields are not just text — they decide what the customer is actually charged:
 
-### Later: real card payments
-When you want to accept cards, that's a separate step through a Macedonian bank (CaSys cPay) — tell me and we'll add it. Until then this form covers cash-on-delivery and bank transfer, which is enough to start taking orders.
+- **Цена за достава (ден.)** — added to every order below the threshold (currently 130).
+- **Бесплатна достава над (ден.)** — at or above this subtotal, delivery is free (currently 1.500).
+
+Change either one and both the basket total *and* the amount charged to the card update together. The **Текст за достава** field is the sentence shown to customers — update it to match if you change the numbers, since it is only text.
+
+> Also fill in **Е-пошта** under Контакт. The Услови and Враќање pages show it as the address for complaints and returns, and it currently reads `[внесете е-пошта во админот]`.
+
+---
+
+## Card payments (Halkbank)
+
+Cards are live through Halkbank's virtual POS. The flow: the customer fills the order form, the order is saved **first**, then they go to the bank's secure 3-D Secure page to enter the card. When the bank approves, they come back to a success page.
+
+Because the order is saved before payment, you still get the name and address even if someone abandons or fails the payment — those simply arrive with no matching payment record.
+
+### Seeing what was paid
+Two forms appear under the **Forms** tab:
+
+- **order** — every order, with the customer's details and a **Број на нарачка** (order number).
+- **payment** — only *successful* card payments, with the same **Број на нарачка**, the amount, and the bank's authorisation code.
+
+Match the two by order number. Add an email notification on **payment** as well (**Forms → Form notifications**) so a paid order can't slip past you.
+
+> Note: Netlify's free plan includes 100 form submissions per month, and a card order uses two (order + payment). If you start getting close, tell me and we'll move the notifications off Netlify Forms.
+
+### The bank credentials
+These live **only** in Netlify (**Site configuration → Environment variables**), never in the code: `HALKBANK_CLIENT_ID`, `HALKBANK_STORE_KEY`, `HALKBANK_GATE_URL`, `SITE_URL`. The storekey is marked secret and can't be read back — keep the bank's email.
+
+### Going from test to live
+The site currently points at Halkbank's **test** system, so no real money moves. When the bank issues production credentials, update those variables in Netlify and redeploy — no code changes. Tell me and I'll walk you through it.
+
+### If a payment goes wrong
+**Logs → Functions** in Netlify shows every attempt: `Payment initiated`, then `Payment approved` or `Payment failed` with the bank's reason. A `HASH mismatch` line means the storekey is wrong or has a stray space.

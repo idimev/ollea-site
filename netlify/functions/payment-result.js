@@ -4,6 +4,42 @@
 const crypto = require("crypto");
 
 const STORE_KEY = process.env.HALKBANK_STORE_KEY;
+const SITE_URL = (process.env.SITE_URL || "https://ollea.mk").replace(/\/$/, "");
+
+// Успешното плаќање се пријавува како Netlify Forms поднесок (формата
+// „payment" е декларирана во payment-success.html). Така добивате е-порака
+// веднаш, а записот стои до самата нарачка со истиот број.
+// Никогаш не смее да го спречи или одложи пренасочувањето на купувачот.
+async function notifyPaid(details) {
+  const body = new URLSearchParams({
+    "form-name": "payment",
+    "Број на нарачка": details.oid || "",
+    "Износ": details.amount || "",
+    "Авторизација": details.authCode || "",
+    "Трансакција": details.transId || "",
+    "Картичка": details.maskedPan || "",
+    "Статус": "Успешно платено",
+  });
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch(`${SITE_URL}/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString(),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      console.warn("Payment notification rejected:", res.status, details.oid);
+    }
+  } catch (err) {
+    // Плаќањето е веќе успешно — само известувањето падна.
+    console.warn("Payment notification failed:", err.message, details.oid);
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 const escapeVal = (v) => String(v).replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
 
@@ -61,14 +97,20 @@ exports.handler = async (event) => {
     p.Response === "Approved" && String(p.ProcReturnCode) === "00";
 
   if (threeDOk && approved) {
-    // TODO: record the order as PAID here (email notification / DB / webhook).
-    // The customer's details are already in Netlify Forms under the same order
-    // number (field "Број на нарачка"), so matching is by `oid`.
     console.log("Payment approved:", {
       oid,
       amount: p.amount,
       AuthCode: p.AuthCode,
       TransId: p.TransId,
+      maskedPan: p.MaskedPan,
+    });
+    // Купувачот е веќе наплатен — известувањето не смее да падне со него,
+    // затоа notifyPaid никогаш не фрла грешка.
+    await notifyPaid({
+      oid,
+      amount: p.amount,
+      authCode: p.AuthCode,
+      transId: p.TransId,
       maskedPan: p.MaskedPan,
     });
     return redirect(

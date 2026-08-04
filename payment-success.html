@@ -86,6 +86,20 @@
     </div>
   </footer>
 
+  <!-- Скриена декларација на формата „payment". Netlify ги регистрира формите
+       со скенирање на HTML при деплој; функцијата payment-result поднесува
+       тука по успешно плаќање, за да добиете е-порака и запис во Forms.
+       Не се прикажува и не се пополнува од купувачот. -->
+  <form name="payment" data-netlify="true" hidden aria-hidden="true">
+    <input type="hidden" name="form-name" value="payment">
+    <input type="text" name="Број на нарачка">
+    <input type="text" name="Износ">
+    <input type="text" name="Авторизација">
+    <input type="text" name="Трансакција">
+    <input type="text" name="Картичка">
+    <input type="text" name="Статус">
+  </form>
+
   <!-- Плаќањето е успешно — испразни ја кошничката и прикажи го бројот на нарачката -->
   <script>
     try { localStorage.removeItem('ollea_cart'); } catch (e) {}
