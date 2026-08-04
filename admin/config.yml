@@ -95,3 +95,5 @@ collections:
               - { name: "iban", label: "Сметка / IBAN", widget: "string" }
               - { name: "codNote", label: "Текст за плаќање при достава", widget: "text" }
               - { name: "deliveryNote", label: "Текст за достава", widget: "text" }
+              - { name: "deliveryFee", label: "Цена за достава (ден.)", widget: "number", value_type: "int", min: 0, default: 130, hint: "Се додава на сумата што се наплаќа со картичка." }
+              - { name: "freeDeliveryOver", label: "Бесплатна достава над (ден.)", widget: "number", value_type: "int", min: 0, default: 1500, hint: "Ако меѓузбирот е еднаков или поголем од овој износ, доставата е бесплатна." }

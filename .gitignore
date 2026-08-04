@@ -1,0 +1,13 @@
+# Локални тајни (Halkbank креденцијали) — никогаш во репозиториумот
+.env
+.env.*
+!.env.example
+
+# Netlify
+.netlify/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store

@@ -6,6 +6,11 @@
 (function () {
   var KEY = 'ollea_cart';
 
+  /* Достава — истото правило е применето и на серверот
+     (netlify/functions/create-payment.js чита од content/settings.json),
+     за да не се разликува прикажаната од наплатената сума. */
+  var delivery = { fee: 130, freeOver: 1500 };
+
   function read() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} }
   // Цените доаѓаат од единствениот извор (content/products.json преку products.js)
@@ -36,12 +41,23 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-cart-count]'), function (el) { el.textContent = n; });
   }
 
+  /* Пресметка на сумите за дадена кошничка */
+  function totals(c) {
+    c = c || read();
+    var sub = c.reduce(function (s, i) { return s + price(i.name) * i.qty; }, 0);
+    var ship = (sub > 0 && sub < delivery.freeOver) ? delivery.fee : 0;
+    return { subtotal: sub, delivery: ship, total: sub + ship };
+  }
+
   function serialize(c) {
     var lines = c.map(function (i) {
       return i.qty + '× ' + i.name + ' (' + fmt(price(i.name)) + ') = ' + fmt(price(i.name) * i.qty);
     });
-    var sub = c.reduce(function (s, i) { return s + price(i.name) * i.qty; }, 0);
-    return lines.join('\n') + '\nМеѓузбир (производи): ' + fmt(sub);
+    var t = totals(c);
+    return lines.join('\n') +
+      '\nМеѓузбир (производи): ' + fmt(t.subtotal) +
+      '\nДостава: ' + (t.delivery ? fmt(t.delivery) : 'бесплатно') +
+      '\nВкупно: ' + fmt(t.total);
   }
 
   function renderCart() {
@@ -49,20 +65,20 @@
     if (!wrap) return;
     var c = read();
     var empty = document.getElementById('cartEmpty');
-    var totals = document.getElementById('cartTotals');
+    var totalsEl = document.getElementById('cartTotals');
     var field = document.getElementById('orderField');
     var submit = document.getElementById('orderSubmit');
 
     if (!c.length) {
       wrap.innerHTML = '';
       if (empty) empty.style.display = 'block';
-      if (totals) totals.style.display = 'none';
+      if (totalsEl) totalsEl.style.display = 'none';
       if (field) field.value = '';
       if (submit) { submit.disabled = true; submit.style.opacity = .5; submit.style.pointerEvents = 'none'; }
       return;
     }
     if (empty) empty.style.display = 'none';
-    if (totals) totals.style.display = 'block';
+    if (totalsEl) totalsEl.style.display = 'block';
     if (submit) { submit.disabled = false; submit.style.opacity = 1; submit.style.pointerEvents = 'auto'; }
 
     wrap.innerHTML = c.map(function (i) {
@@ -80,12 +96,13 @@
         '</div>';
     }).join('');
 
-    var sub = c.reduce(function (s, i) { return s + price(i.name) * i.qty; }, 0);
-    if (totals) {
-      totals.innerHTML =
-        '<div class="row"><span>Меѓузбир (производи)</span><span>' + fmt(sub) + '</span></div>' +
-        '<div class="row"><span>Достава</span><span class="muted">се пресметува при потврда</span></div>' +
-        '<div class="row grand"><span>Вкупно</span><span>' + fmt(sub) + ' + достава</span></div>';
+    var t = totals(c);
+    if (totalsEl) {
+      totalsEl.innerHTML =
+        '<div class="row"><span>Меѓузбир (производи)</span><span>' + fmt(t.subtotal) + '</span></div>' +
+        '<div class="row"><span>Достава</span><span>' +
+          (t.delivery ? fmt(t.delivery) : 'Бесплатно') + '</span></div>' +
+        '<div class="row grand"><span>Вкупно</span><span>' + fmt(t.total) + '</span></div>';
     }
     if (field) field.value = serialize(c);
   }
@@ -118,9 +135,21 @@
     }
   });
 
+  /* Цената на доставата доаѓа од content/settings.json (уредливо од админот).
+     Ако не е достапна, остануваат стандардните вредности погоре. */
+  var settingsReady = fetch('content/settings.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('no'); return r.json(); })
+    .then(function (s) {
+      var p = (s && s.payment) || {};
+      if (typeof p.deliveryFee === 'number' && p.deliveryFee >= 0) delivery.fee = p.deliveryFee;
+      if (typeof p.freeDeliveryOver === 'number' && p.freeDeliveryOver >= 0) delivery.freeOver = p.freeDeliveryOver;
+    })
+    .catch(function () {});
+
   document.addEventListener('DOMContentLoaded', function () {
     updateBadge();
     renderCart();
+    settingsReady.then(function () { renderCart(); });
     // Кога ќе се вчитаат цените од products.json, повторно прикажи ја кошничката
     if (window.OlleaProducts && window.OlleaProducts.ready && window.OlleaProducts.ready.then) {
       window.OlleaProducts.ready.then(function () { updateBadge(); renderCart(); });
@@ -139,6 +168,11 @@
   window.OlleaCart = {
     add: add,
     refresh: function () { updateBadge(); renderCart(); },
-    clear: function () { write([]); updateBadge(); renderCart(); }
+    clear: function () { write([]); updateBadge(); renderCart(); },
+    /* Користено од js/payment.js (плаќање со картичка) */
+    items: read,
+    totals: totals,
+    serialize: function () { return serialize(read()); },
+    ready: settingsReady
   };
 })();

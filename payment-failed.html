@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плаќањето не помина — Ollea</title>
+  <meta name="description" content="Плаќањето не беше завршено. Обидете се повторно или изберете друг начин на плаќање.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ХЕДЕР -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/ollea-logo.png" /></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Дома</a>
+        <a href="products.html">Производи</a>
+        <a href="about.html">За нас</a>
+        <a href="blog.html">Блог</a>
+        <a href="naracka.html" class="btn btn--primary" style="padding:9px 20px;">Кошничка (<span data-cart-count>0</span>)</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Мени">☰</button>
+    </div>
+  </header>
+
+  <!-- ПОРАКА -->
+  <section class="section" style="text-align:center;">
+    <div class="container" style="max-width:640px;">
+      <div style="font-size:3rem; margin-bottom:10px;">❌</div>
+      <span class="eyebrow">Плаќањето не помина</span>
+      <h1>Картичката не беше наплатена</h1>
+      <p class="muted">Обидете се повторно или користете друга картичка. Ако проблемот се повтори, изберете плаќање при достава или контактирајте нè.</p>
+
+      <p id="orderNo" style="margin-top:22px; display:none;">
+        Број на нарачка: <strong id="orderNoValue" style="font-family:monospace;"></strong>
+      </p>
+
+      <p id="reason" class="muted" style="display:none; font-size:.9rem; margin-top:10px;">
+        Причина: <span id="reasonValue"></span>
+      </p>
+
+      <div style="margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="naracka.html" class="btn btn--primary">Назад на нарачката</a>
+        <a href="index.html" class="btn btn--outline">Назад на почетна</a>
+      </div>
+
+      <p class="muted" style="font-size:.9rem; margin-top:22px;">
+        Вашата кошничка е зачувана — можете да се обидете повторно.
+      </p>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="images/ollea-logo-w.png" /></a>
+          <p style="margin-top:14px; color:rgba(255,255,255,.7); font-size:.95rem;">Природна козметика создадена во Македонија со грижа за вашата кожа и природата.</p>
+        </div>
+        <div>
+          <h4>Навигација</h4>
+          <ul>
+            <li><a href="index.html">Дома</a></li>
+            <li><a href="products.html">Производи</a></li>
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Информации</h4>
+          <ul>
+            <li><a href="terms.html">Услови и правила</a></li>
+            <li><a href="privatnost.html">Политика за приватност</a></li>
+            <li><a href="vrakjane.html">Испорака и враќање</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакт</h4>
+          <ul>
+            <li data-cms="contact.company">Камилица Фармаси ДООЕЛ</li>
+            <li data-cms="contact.address">Куманово, ул. АВНОЈ 64</li>
+            <li data-cms="contact.phone"><a href="tel:+38978830712">078 830 712</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Ollea. Сите права задржани.</div>
+    </div>
+  </footer>
+
+  <!-- Кошничката намерно НЕ се празни — корисникот може да се обиде повторно -->
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+
+      var oid = q.get('oid');
+      if (oid) {
+        var wrap = document.getElementById('orderNo');
+        var val = document.getElementById('orderNoValue');
+        if (wrap && val) { val.textContent = oid; wrap.style.display = 'block'; }
+      }
+
+      /* Внатрешните причини не му значат ништо на купувачот */
+      var reason = q.get('reason');
+      if (reason && reason !== 'verification' && reason !== 'config') {
+        var rWrap = document.getElementById('reason');
+        var rVal = document.getElementById('reasonValue');
+        if (rWrap && rVal) { rVal.textContent = reason; rWrap.style.display = 'block'; }
+      }
+    })();
+  </script>
+  <script src="js/cart.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

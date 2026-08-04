@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кошничка и нарачка — Ollea</title>
-  <meta name="description" content="Вашата кошничка и нарачка од Ollea — плаќање при достава (готовина).">
+  <meta name="description" content="Вашата кошничка и нарачка од Ollea — плаќање при достава (готовина) или со картичка.">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -33,7 +33,7 @@
     <div class="container">
       <span class="eyebrow">Кошничка и нарачка</span>
       <h1>Вашата нарачка</h1>
-      <p>Проверете ја кошничката и пополнете ги податоците. Плаќате при достава (готовина) — без онлајн картичка.</p>
+      <p>Проверете ја кошничката и пополнете ги податоците. Плаќате при достава (готовина) или со картичка преку безбедната страница на банката.</p>
     </div>
   </section>
 
@@ -65,14 +65,21 @@
             <p hidden><label>Не пополнувај го ова поле: <input name="bot-field"></label></p>
             <!-- Содржината на кошничката (се пополнува автоматски) -->
             <textarea id="orderField" name="Нарачка" hidden></textarea>
+            <!-- Број на нарачка — се пополнува при плаќање со картичка и служи
+                 за спарување со трансакцијата кај банката -->
+            <input type="hidden" id="orderOid" name="Број на нарачка" value="">
 
             <fieldset>
               <legend>Начин на плаќање</legend>
               <label><input type="radio" name="Начин на плаќање" value="Плаќање при достава" checked> Плаќање при достава (готовина)</label>
+              <label><input type="radio" name="Начин на плаќање" value="Плаќање со картичка"> Плаќање со картичка (Visa / Mastercard)</label>
               <!-- Привремено оневозможено — ќе се врати кога ќе биде подготвено
               <label><input type="radio" name="Начин на плаќање" value="Банкарски трансфер"> Банкарски трансфер</label>
               -->
             </fieldset>
+            <p id="cardNote" class="muted" style="display:none; font-size:.88rem; margin:-6px 0 6px;">
+              Ќе бидете пренасочени на безбедната страница на банката за внесување на податоците од картичката. Ollea не ги гледа ниту чува тие податоци.
+            </p>
 
             <label>Име и презиме
               <input type="text" name="Име и презиме" required>
@@ -107,6 +114,14 @@
             <button type="submit" id="orderSubmit" class="btn btn--primary btn--block">Испрати нарачка</button>
             <p class="muted" style="font-size:.85rem; margin-top:12px;">Со испраќање на нарачката се согласувате со нашите <a href="terms.html">Услови и правила</a>.</p>
           </form>
+
+          <!-- Плаќање со картичка: сумата ја пресметува серверот од
+               производите подолу, па потпишаната форма се праќа кај банката.
+               Се поднесува од js/payment.js, по снимањето на нарачката. -->
+          <form id="halkbank-pay" action="/.netlify/functions/create-payment" method="POST" hidden>
+            <input type="hidden" id="payItems" name="items" value="">
+            <input type="hidden" id="payOid" name="oid" value="">
+          </form>
         </div>
 
         <!-- Десно: начини на плаќање (уредливо од админот) -->
@@ -117,6 +132,11 @@
           <div class="pay-block">
             <h4 style="margin:0 0 6px;">Плаќање при достава</h4>
             <p class="muted" style="font-size:.92rem; margin:0;" data-cms="payment.codNote">Плаќате во готово при прием на пратката.</p>
+          </div>
+
+          <div class="pay-block">
+            <h4 style="margin:0 0 6px;">Плаќање со картичка</h4>
+            <p class="muted" style="font-size:.92rem; margin:0;">Visa и Mastercard преку безбедната страница на Халкбанк (3-D Secure). Податоците од картичката се внесуваат кај банката — Ollea не ги гледа ниту чува.</p>
           </div>
 
           <!-- Привремено оневозможено — ќе се врати кога ќе биде подготвено
@@ -185,6 +205,7 @@
 
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/payment.js"></script>
   <script src="js/site.js"></script>
   <script src="js/script.js"></script>
 </body>
