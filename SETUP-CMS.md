@@ -111,7 +111,7 @@ Go to **Поставки → Почетна и контакт → Плаќање
 
 Change either one and both the basket total *and* the amount charged to the card update together. The **Текст за достава** field is the sentence shown to customers — update it to match if you change the numbers, since it is only text.
 
-> Also fill in **Е-пошта** under Контакт. The Услови and Враќање pages show it as the address for complaints and returns, and it currently reads `[внесете е-пошта во админот]`.
+> The Услови and Враќање pages currently send customers to the **phone number** for complaints and returns, because the shop has no contact email yet. When you have one, tell me and I'll put it back on both pages (the markup is already commented in place) — a bank may want an email address published before activating the card terminal.
 
 ---
 
