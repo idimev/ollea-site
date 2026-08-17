@@ -9,7 +9,7 @@
   /* Достава — истото правило е применето и на серверот
      (netlify/functions/create-payment.js чита од content/settings.json),
      за да не се разликува прикажаната од наплатената сума. */
-  var delivery = { fee: 130, freeOver: 1500 };
+  var delivery = { fee: 130, freeOver: 1200 };
 
   function read() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} }

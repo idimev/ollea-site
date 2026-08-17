@@ -112,6 +112,19 @@ img, svg { max-width: 100%; display: block; }
   color: #fff;
 }
 
+/* ---------- Топ банер (бесплатна достава) ---------- */
+.topbar {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  padding: 10px 0;
+}
+.topbar p { margin: 0; }
+
 /* ---------- Хедер ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
@@ -335,6 +348,7 @@ img, svg { max-width: 100%; display: block; }
 }
 
 @media (max-width: 640px) {
+  .topbar { font-size: .78rem; padding: 8px 0; line-height: 1.45; }
   .nav {
     position: absolute; top: 76px; left: 0; right: 0;
     background: var(--color-bg); flex-direction: column; gap: 0;

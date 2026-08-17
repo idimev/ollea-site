@@ -20,7 +20,7 @@ const SITE_URL = (process.env.SITE_URL || "https://ollea.mk").replace(/\/$/, "")
 
 // Delivery rule (mirrored in js/cart.js so the shopper sees the same total).
 const DELIVERY_FEE = num(settings?.payment?.deliveryFee, 130);
-const FREE_DELIVERY_OVER = num(settings?.payment?.freeDeliveryOver, 1500);
+const FREE_DELIVERY_OVER = num(settings?.payment?.freeDeliveryOver, 1200);
 
 const MAX_QTY = 99;      // per line
 const MAX_LINES = 50;    // distinct products per order

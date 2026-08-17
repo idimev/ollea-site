@@ -10,57 +10,11 @@ public_folder: "/images/uploads"
 locale: "mk"
 
 collections:
-  # ---------- БЛОГ ----------
-  - name: "blog"
-    label: "Блог"
-    files:
-      - name: "posts"
-        label: "Блог постови"
-        file: "content/blog.json"
-        format: "json"
-        description: "Додавај, уредувај и бриши блог постови."
-        fields:
-          - name: "posts"
-            label: "Постови"
-            label_singular: "Пост"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { name: "title", label: "Наслов", widget: "string" }
-              - { name: "slug", label: "URL слаг (опционално)", widget: "string", required: false, hint: "Пр. 5-cekori-za-zdrava-koza. Ако е празно, се генерира од насловот." }
-              - { name: "date", label: "Датум", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-              - { name: "category", label: "Категорија", widget: "string", required: false }
-              - { name: "readTime", label: "Време на читање", widget: "string", required: false, hint: "Пр. 5 мин" }
-              - { name: "summary", label: "Краток опис", widget: "text" }
-              - { name: "cover", label: "Главна слика", widget: "image", required: false }
-              - { name: "body", label: "Содржина", widget: "markdown" }
-
-  # ---------- ПРОИЗВОДИ ----------
-  - name: "products"
-    label: "Производи"
-    files:
-      - name: "list"
-        label: "Производи"
-        file: "content/products.json"
-        format: "json"
-        description: "Додавај, уредувај и бриши производи. Се прикажуваат на страницата Производи, на страницата за производ и во кошничката."
-        fields:
-          - name: "products"
-            label: "Производи"
-            label_singular: "Производ"
-            widget: "list"
-            summary: "{{fields.name}} — {{fields.price}} ден."
-            fields:
-              - { name: "name", label: "Име", widget: "string" }
-              - { name: "slug", label: "URL слаг", widget: "string", hint: "Пр. hidratantna-dnevna-krema" }
-              - { name: "category", label: "Категорија", widget: "string", required: false }
-              - { name: "price", label: "Цена (ден.)", widget: "number", value_type: "int", min: 0 }
-              - { name: "summary", label: "Краток опис (за листата)", widget: "text" }
-              - { name: "description", label: "Детален опис", widget: "text" }
-              - { name: "image", label: "Слика", widget: "image", required: false }
-              - { name: "code", label: "Шифра", widget: "string", required: false }
-              - { name: "skinType", label: "Тип на кожа", widget: "string", required: false }
-              - { name: "volume", label: "Волумен", widget: "string", required: false }
+  # Колекциите „Блог" и „Производи" се отстранети — тие страници се
+  # уредуваат директно во HTML. content/products.json останува во репото:
+  # од него кошничката ги чита цените и функцијата create-payment ја
+  # пресметува сумата што се наплаќа. Мора да се одржува рачно, заедно
+  # со цените напишани во proizvod-*.html, products.html и index.html.
 
   # ---------- ПОСТАВКИ ----------
   - name: "settings"
@@ -96,4 +50,4 @@ collections:
               - { name: "codNote", label: "Текст за плаќање при достава", widget: "text" }
               - { name: "deliveryNote", label: "Текст за достава", widget: "text" }
               - { name: "deliveryFee", label: "Цена за достава (ден.)", widget: "number", value_type: "int", min: 0, default: 130, hint: "Се додава на сумата што се наплаќа со картичка." }
-              - { name: "freeDeliveryOver", label: "Бесплатна достава над (ден.)", widget: "number", value_type: "int", min: 0, default: 1500, hint: "Ако меѓузбирот е еднаков или поголем од овој износ, доставата е бесплатна." }
+              - { name: "freeDeliveryOver", label: "Бесплатна достава над (ден.)", widget: "number", value_type: "int", min: 0, default: 1200, hint: "Ако меѓузбирот е еднаков или поголем од овој износ, доставата е бесплатна." }
